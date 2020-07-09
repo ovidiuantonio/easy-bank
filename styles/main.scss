@@ -1,0 +1,567 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media only screen and (min-width: 1900px) {
+    font-size: 72.5%;
+  }
+}
+
+$DarkBlue: hsl(233, 26%, 24%);
+$LimeGreen: hsl(136, 65%, 51%);
+$BrightCyan: hsl(192, 70%, 51%);
+$GrayishBlue: hsl(233, 8%, 62%);
+$LightGrayishBlue: hsl(220, 16%, 96%);
+$VeryLightGray: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+
+body {
+  font-family: "Public Sans", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+
+  @media only screen and (max-width: 1200px) {
+    text-align: center;
+  }
+}
+
+.navbar {
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  background-color: $White;
+  padding: 2rem 10vw;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 900px) {
+    justify-content: space-between;
+  }
+
+  &__mobile-toggler {
+    display: none;
+    cursor: pointer;
+
+    @media only screen and (max-width: 900px) {
+      display: block;
+    }
+  }
+
+  &__logo img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__items {
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+
+    @media only screen and (max-width: 900px) {
+      display: none;
+    }
+
+    &-m {
+      list-style: none;
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__item {
+    margin: 0 2rem;
+    margin-top: 1rem;
+  }
+
+  &__item:hover &__link-border {
+    width: 100%;
+
+    @media only screen and (max-width: 900px) {
+      width: 20%;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: $GrayishBlue;
+
+    &-border {
+      transition: all 0.3s ease;
+      margin: 0 auto;
+      width: 0%;
+      height: 0.3rem;
+      margin-top: 1rem;
+      background-image: linear-gradient(to right, $LimeGreen, $BrightCyan);
+    }
+  }
+}
+
+.mobile-nav {
+  background-color: $White;
+  position: absolute;
+  width: 80vw;
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 5rem;
+  display: none;
+
+  @media only screen and (max-width: 600px) {
+    padding: 2rem;
+  }
+
+  & img {
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+}
+
+.on {
+  display: block;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+  background-image: linear-gradient(to right, $LimeGreen, $BrightCyan);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  &:hover {
+    opacity: 0.8;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem 1rem $LimeGreen;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 1.8rem;
+    padding: 1.5rem 4rem;
+  }
+
+  &-nav {
+    @media only screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+}
+
+.text {
+  &__intro {
+    font-size: 6rem;
+    font-weight: 300;
+    color: $DarkBlue;
+    margin-bottom: 2rem;
+    width: 80%;
+
+    @media only screen and (max-width: 1200px) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      font-size: 4rem;
+    }
+  }
+
+  &__features {
+    font-size: 5rem;
+    font-weight: 300;
+    color: $DarkBlue;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 4rem;
+    }
+  }
+
+  &__f {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: $DarkBlue;
+  }
+
+  &__articles {
+    font-size: 5rem;
+    font-weight: 300;
+    color: $DarkBlue;
+    margin-bottom: 10rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 4rem;
+    }
+  }
+
+  &__a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $LimeGreen;
+    }
+  }
+}
+
+.paragraph {
+  &__intro {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $GrayishBlue;
+    width: 65%;
+    margin-bottom: 2rem;
+
+    @media only screen and (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  &__features {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: $GrayishBlue;
+    width: 60%;
+    margin-bottom: 10rem;
+
+    @media only screen and (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  &__f {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: $GrayishBlue;
+    line-height: 1.5;
+    width: 90%;
+
+    @media only screen and (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+  &__author {
+    font-size: 1.3rem;
+    color: $GrayishBlue;
+    margin: 2rem 0;
+  }
+
+  &__a {
+    font-size: 1.3rem;
+    color: $GrayishBlue;
+  }
+
+  &__footer {
+    font-size: 1.5rem;
+    color: white;
+
+    @media only screen and (max-width: 900px) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  padding: 0 10vw;
+  background-color: $VeryLightGray;
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 5vw;
+    padding-bottom: 10vh;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding-bottom: 10vh;
+  }
+
+  background-image: url("../images/bg-intro-desktop.svg");
+  background-position-x: 40vw;
+  background-position-y: -30vh;
+  background-repeat: no-repeat;
+  background-size: 75%;
+
+  @media only screen and (max-width: 1200px) {
+    background-image: url("../images/bg-intro-mobile.svg");
+    background-position-x: 0;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: 600px) {
+    background-position-y: 0;
+    background-size: contain;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 0;
+    transform: translate(0, -20vh);
+
+    @media only screen and (max-width: 600px) {
+      transform: translate(0, -10vh);
+    }
+
+    & img {
+      max-width: 150%;
+      height: auto;
+
+      @media only screen and (max-width: 900px) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: -30vh;
+
+    @media only screen and (max-width: 1200px) {
+      margin-top: -10vh;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-top: -5vh;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+.features {
+  margin-top: -40vh;
+  background-color: $LightGrayishBlue;
+  padding: 15vh 10vw;
+
+  @media only screen and (max-width: 1200px) {
+    margin-top: 0;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 15vh 5vw;
+  }
+}
+
+.f {
+  &-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &-item {
+    flex: 0 1 29rem;
+    height: 30rem;
+
+    @media only screen and (max-width: 1200px) {
+      flex: 0 0 51%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &-image {
+    margin-bottom: 2rem;
+
+    & img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.articles {
+  background-color: $VeryLightGray;
+  padding: 15vh 10vw;
+
+  @media only screen and (max-width: 900px) {
+    padding: 15vh 5vw;
+  }
+}
+
+.a {
+  &-items {
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      justify-content: center;
+    }
+  }
+
+  &-item {
+    flex: 0 1 28rem;
+    height: 37rem;
+
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: $White;
+    margin-bottom: 4rem;
+
+    &:not(:last-of-type) {
+      margin-right: 4rem;
+
+      @media only screen and (max-width: 1200px) {
+        margin-right: 0;
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      flex: 0 0 51%;
+      height: 42rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+      flex: 0 0 90%;
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: 15rem;
+    overflow: hidden;
+
+    @media only screen and (max-width: 900px) {
+      height: 18rem;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      height: 22rem;
+    }
+
+    & img {
+      max-width: 100%;
+      height: auto;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &-text {
+    padding: 2rem;
+  }
+}
+
+.footer {
+  padding: 8vh 10vw;
+  background-color: $DarkBlue;
+  display: flex;
+  height: 30vh;
+
+  @media only screen and (max-width: 1200px) {
+    height: 25vh;
+  }
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+
+    & li {
+      @media only screen and (max-width: 900px) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      text-align: center;
+      display: inline-block;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 10rem;
+
+      @media only screen and (max-width: 900px) {
+        margin-right: 0;
+      }
+    }
+
+    &-margin {
+      margin-right: auto;
+
+      @media only screen and (max-width: 900px) {
+        margin-right: 0;
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    @media only screen and (max-width: 900px) {
+      margin-bottom: 2rem;
+    }
+
+    &:hover {
+      color: $LimeGreen;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 900px) {
+      display: inline-block;
+    }
+
+    & svg {
+      cursor: pointer;
+      fill: $White;
+      transition: all 0.3s ease;
+
+      @media only screen and (max-width: 900px) {
+        margin: 4rem 1rem;
+      }
+
+      &:hover {
+        fill: $LimeGreen;
+      }
+    }
+  }
+}
